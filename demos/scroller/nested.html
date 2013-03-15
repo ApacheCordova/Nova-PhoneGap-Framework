@@ -1,0 +1,103 @@
+﻿
+<style type="text/css">
+    #scroller1,#scroller2 {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+    }
+    #demoContent {
+        padding: 10px;
+    }
+    dl {
+        padding: 0px;
+        margin: 0px;
+    }
+    dl dt {
+        font-weight: bold;
+    }
+</style>
+
+<div id="header" class="bar">
+    <div id="back" class="btn-left">
+        <span>Back</span>
+    </div>
+    Scroller in scroller
+</div>
+<div id="demoContent" style="top: 50px;">
+    <div class="group">
+        the whole page scrolling, try it now!<br/>
+        the whole page scrolling, try it now!<br/>
+        the whole page scrolling, try it now!<br/>
+    </div>
+    <div id="scroller1" class="group" style="height: 100px; overflow: hidden;">
+        <dl>
+            <dt>this is scroller 1</dt>
+            <dd>scrolling text here, this is line 1</dd>
+            <dd>scrolling text here, this is line 2</dd>
+            <dd>scrolling text here, this is line 3</dd>
+            <dd>scrolling text here, this is line 4</dd>
+            <dd>scrolling text here, this is line 5</dd>
+            <dd>scrolling text here, this is line 6</dd>
+            <dd>scrolling text here, this is line 7</dd>
+            <dd>scrolling text here, this is line 8</dd>
+            <dd>scrolling text here, this is line 9</dd>
+        </dl>
+    </div>
+    <div class="group">
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+    </div>
+    <div id="scroller2" class="group" style="height: 100px; overflow: hidden;">
+        <dl>
+            <dt>this is scroller 2</dt>
+            <dd>scrolling text here, this is line 1</dd>
+            <dd>scrolling text here, this is line 2</dd>
+            <dd>scrolling text here, this is line 3</dd>
+            <dd>scrolling text here, this is line 4</dd>
+            <dd>scrolling text here, this is line 5</dd>
+            <dd>scrolling text here, this is line 6</dd>
+            <dd>scrolling text here, this is line 7</dd>
+            <dd>scrolling text here, this is line 8</dd>
+            <dd>scrolling text here, this is line 9</dd>
+        </dl>
+    </div>
+    <div class="group">
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+    </div>
+    <div class="group">
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+        here is some text, not scrolling,here is some text, not scrolling<br/>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+    nova.application.currentPage.onLoaded(function () {
+        $("#demoContent").height(($(window).height() - 50) + "px");
+        nova.touch.bindClick("#back", function () {
+            nova.application.goBack();
+        });
+
+        var scroller = new nova.Scroller("demoContent");
+        scroller.init();
+        var scroller1 = new nova.Scroller("scroller1");
+        scroller1.isInVerticalScroll = true;
+        scroller1.init();
+
+        var scroller2 = new nova.Scroller("scroller2");
+        scroller2.isInVerticalScroll = true;
+        scroller2.init();
+    });
+</script>

@@ -1,0 +1,14 @@
+﻿
+
+/***************************/
+ul li {
+    list-style: none;
+    background-color: aquamarine;
+    border-bottom: 1px solid green;
+    border-top: 1px solid lightgreen;
+    line-height: 50px;
+}
+ul {
+    padding: 0px;
+    margin: 0px;
+}

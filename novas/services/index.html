@@ -1,0 +1,101 @@
+﻿<style type="text/css">
+    .service-item {
+        overflow: hidden;
+        padding: 5px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .service-item img {
+        border: 10px solid #E8F9FF;
+        border-radius: 5px 5px 5px 5px;
+        float: left;
+        height: 50px;
+        width: 50px;
+    }
+    .service-item-right {
+        margin-left: 75px;
+    }
+    .service-item-name {
+        color: #09B6EF;
+    }
+    .service-item-description {
+        color: #a0a0a0;
+        font-size: 12px;
+    }
+    .content-w1 {
+        padding: 0 15px;
+    }
+    #services {
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 1);
+        margin: 15px 0;
+        overflow: hidden;
+    }
+    #services :last-child {
+        border-bottom: 0px;
+    }
+    #content {
+        position: absolute;
+        width: 100%;
+    }
+</style>
+
+<div class="page">
+    <div id="header" class="bar">
+        <div class="btn-left">
+            <span>Back</span>
+        </div>
+        <h1>Services</h1>
+    </div>
+    <div id="content">
+        <div class="content-w1">
+            <div id="scroll">
+                <div id="services">
+                
+                </div>
+            </div>    
+        </div>
+    </div>    
+</div>
+
+<script language="javascript" type="text/javascript">
+    nova.application.currentPage.onLoaded(function() {
+        var services = [];
+        services.push(new Service("Web Development", "Dynamic websites, applications, CMS or web services"));
+        services.push(new Service("Application Development", "Customized application development as well as product development"));
+        services.push(new Service("E-commerce Development", "Base on open source Ecommerce project"));
+        services.push(new Service("Mobile Development","Android, iOS, WP, etc."));
+        services.push(new Service("Re-engineering Migration", "Platform or Operating System migration"));
+        services.push(new Service("Consulting", "For non-technical clients"));
+        services.push(new Service("Maintenance","Can developer new feature"));
+        var html = "";
+        for(var i=0;i<services.length;i++) {
+            var service = services[i];
+            html += "<div class='service-item' data-key='" + service.key + "'>";
+            html += "<img src='" + service.icon + "' />";
+            html += "<div class='service-item-right'>";
+            html += "<div class='service-item-name'>" + service.name + "</div>";
+            html += "<div class='service-item-description'>" + service.description + "</div>";
+            html += "</div>";
+            html += "</div>";
+        }
+        $("#services").append(html);
+        $("#content").css("top", $("#header").outerHeight() + "px");
+        $("#content").height($(window).height() - $("#header").outerHeight() + "px");
+
+        new nova.Scroller("scroll").init();
+        nova.touch.bindClick(".service-item", function() {
+            var name = $(this).attr("data-key");
+            nova.application.gotoPage("novas/services/" + name + ".html");
+        });
+        nova.touch.bindClick(".btn-left", function() {
+            nova.application.goBack();
+        });
+    });
+
+    var Service = function(name, description) {
+        this.name = name;
+        this.key = name.replace(" ", "");
+        this.icon = "novas/images/services/icons/" + this.key + ".jpg";
+        this.description = description;
+    };
+</script>

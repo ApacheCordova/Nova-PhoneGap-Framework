@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nova PhoneGap Architecture</title>
+    <script src="Scripts/cordova/cordova-2.2.0.js"></script>
+    <script src="Scripts/jquery/jquery-1.7.2.min.js"></script>
+    
+    <script src="Scripts/novas/framework/nova.touch.js"></script>
+    <script src="Scripts/novas/framework/nova.View.js"></script>
+    <script src="Scripts/novas/framework/nova.Page.js"></script>
+    <script src="Scripts/novas/framework/nova.Scroller.js"></script>
+    <script src="Scripts/novas/framework/nova.Carousel.js"></script>
+    
+    <script src="Scripts/novas/widgets/nova.Widget.js"></script>
+    <script src="Scripts/novas/widgets/nova.widgets.Dialog.js"></script>
+    <script src="Scripts/novas/widgets/nova.widgets.Switch.js"></script>
+    
+    <script src="Scripts/novas/framework/nova.application.js"></script>
+
+    
+</head>
+
+<body>
+    <div id="themes">
+        <link href="themes/nova.ui.core.css" rel="stylesheet" />
+        <link href="themes/nova.ui.content.css" rel="stylesheet" />
+    </div>
+    <div id="body">
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                //nova.application.changeThemes(["/themes/iPhoneClassic/nova.ui.css"]);
+                //nova.application.start("/demos/dialog/firstlook.html");
+               nova.application.start("home.html");
+            });
+        </script>
+    </div>
+</body>
+</html>

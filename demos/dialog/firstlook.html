@@ -1,0 +1,29 @@
+﻿
+
+
+<div id="header" class="bar">
+    <div id="back" class="btn-left">
+        <span>Back</span>
+    </div>
+    Basic Dialog
+</div>
+<div style="top: 150px; padding: 30px; position: absolute;">
+    <div id="btnOpen" class="btn">
+        <span>Re-open the dialog</span>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+    nova.application.currentPage.onLoaded(function () {
+        nova.touch.bindClick("#back", function () {
+            nova.application.goBack();
+        });
+        nova.touch.bindClick("#btnOpen", function () {
+            dialog.show();
+        });
+
+        var dialog = new nova.widgets.Dialog("ddxxx");
+        dialog.title = "demo dialog";
+        dialog.content = "test dialog";
+        dialog.show();
+    });
+</script>

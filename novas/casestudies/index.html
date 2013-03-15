@@ -1,0 +1,83 @@
+﻿
+<style type="text/css">
+    .content-w1 {
+        padding: 15px;
+    }
+    #content {
+        position: absolute;
+    }
+    
+</style>
+<div class="page">
+    <div id="header" class="bar">
+        <div class="btn-left">
+            <span>Back</span>
+        </div>
+        <h1>Cases</h1>
+    </div>
+    <div id="content">
+        <div class="content-w1">
+            <div id="scroll">
+                <p>
+                    Since 2005, we have handled over 150 offshore projects for clients from US, 
+                    UK and Europe and have built a good reputation for doing solid, 
+                    disciplined software outsourcing work that is delivered within schedule and budget.
+                </p>
+                <p>
+                    Now learn more about our service and technical capabilities:
+                </p>
+                <ul class="list2">
+                    <li>
+                        By Technology
+                        <ul>
+                            <li>ASP.NET</li>
+                            <li>Windows Phone</li>
+                            <li>Silverlight</li>
+                            <li>JavaScript</li>
+                            <li>Desktop</li>
+                            <li>WCF/Web Service</li>
+                            <li>Flash</li>
+                            <li>PHP</li>
+                            <li>Testing</li>
+                        </ul>
+                    </li>
+                    <li>
+                        By Experience
+                        <ul>
+                            <li>Website</li>
+                            <li>DNN</li>
+                            <li>SharePoint</li>
+                            <li>Sitefinity</li>
+                            <li>Umbraco</li>
+                            <li>Smart Client</li>
+                        </ul>
+                    </li>
+                    <li>
+                        By Industry
+                        <ul>
+                            <li>e-Commerce</li>
+                            <li>POS</li>
+                            <li>IT</li>
+                            <li>GIS</li>
+                            <li>Medical</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>    
+        </div>
+        
+    </div>    
+</div>
+
+<script language="javascript" type="text/javascript">
+    nova.application.currentPage.onLoaded(function () {
+        
+        $("#content").css("top", $("#header").outerHeight() + "px");
+        $("#content").height($(window).height() - $("#header").outerHeight() + "px");
+
+        new nova.Scroller("scroll").init();
+        nova.touch.bindClick(".btn-left", function () {
+            nova.application.goBack();
+        });
+    });
+</script>

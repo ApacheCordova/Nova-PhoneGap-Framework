@@ -1,0 +1,72 @@
+﻿<style type="text/css">
+    #content {
+        position: absolute;
+    }
+    #menu {
+        overflow: hidden;
+    }
+    .menu-item {
+        float: left;
+    }
+    .menu-item-w1 {
+        width: 80px;
+        margin: 15px auto;
+    }
+    .menu-item-icon {
+        height: 80px;
+    }
+    .menu-item-icon.touching {
+        background-color: rgba(255, 196, 114, 0.5);
+        border-radius: 5px;
+    }
+    .menu-item-icon img {
+        width: 100%;
+        height: 100%;
+    }
+    .menu-item-text {
+        font-size: 12px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        text-align: center;
+    }
+</style>
+<div class="page">
+    <div id="header" class="bar">
+        <div class="btn-left">
+            <span>Back</span>
+        </div>
+        <h1>Nova Software</h1>
+    </div>
+    <div id="content">
+        <div id="menu">
+            
+        </div>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+    nova.application.currentPage.onLoaded(function() {
+        $("#content").css("top", $("#header").outerHeight() + "px");
+        $("#content").height($(window).height() - $("#header").outerHeight() + "px");
+        var items = ["Services", "Case Studies", "Technologies", "Business", "Contact"];
+        var html = "";
+        var itemWidth = $(window).width() / Math.floor($(window).width() / 150) + "px";
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var key = item.toLowerCase().replace(" ", "");
+            html += "<div class='menu-item " + key + "' data-item='" + key + "' style='width:" + itemWidth + ";'>";
+            html += "<div class='menu-item-w1'>";
+            html += "<div class='menu-item-icon'><img src='novas/images/menu/big/" + item + ".png' /></div>";
+            html += "<div class='menu-item-text'>" + item + "</div>";
+            html += "</div>";
+            html += "</div>";
+        }
+        $("#menu").append(html);
+        nova.touch.bindClick(".menu-item-icon", function () {
+            var menuItem = $(this).closest(".menu-item").attr("data-item");
+            nova.application.gotoPage("novas/" + menuItem + "/index.html");
+        });
+        nova.touch.bindClick(".btn-left", function () {
+            nova.application.goBack();
+        });
+    });
+</script>

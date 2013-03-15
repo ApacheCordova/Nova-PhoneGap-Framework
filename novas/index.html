@@ -1,0 +1,93 @@
+﻿
+<style type="text/css">
+    #novaBanners {
+        background-color: #B2C8FF;
+    }
+    .nova-banner {
+        padding: 0 20px;
+    }
+    .nova-banner img{
+        width: 80%;
+    }
+    .nova-banner h2 {
+        margin-top: 0px;
+    }
+    .nova-banner .banner-icon {
+        text-align: center;
+    }
+    .nova-banner .buttons {
+        position: absolute;
+        bottom: 20px;
+        text-align: center;
+    }
+</style>
+
+<div id="novaBanners" >
+    <div class="nova-banner">
+        <div class="banner-icon">
+            <img src="/novas/images/nova-banner-01.png" />
+        </div>
+        <h2>Expertise Makes It Different</h2>
+        <p>
+            As Microsoft Golden Partner, 
+            Nova Software guarantee high standard technical skills and development process. 
+            We are also actively contributing to many open source communities.
+            As an software outsourcing company, 
+            Nova Software emphasize nothing more than quality . 
+        </p>
+        <div class="buttons">
+            <div id="btnBack" class="btn">
+                <span>Back</span>
+            </div>
+        </div>
+    </div>
+    <div class="nova-banner">
+        <div class="banner-icon">
+            <img src="/novas/images/nova-banner-02.png" />
+        </div>
+        <h2>Your Reliable Partner</h2>
+        <p>
+            Nova Software have always been a promoter for integrity and transparency 
+            when serving overseas clients. When you work with our people, 
+            it just feels they are working on your site. 
+            We are proud to present ourselves as an honest software outsourcing company. 
+        </p>
+    </div>
+    <div class="nova-banner">
+        <div class="banner-icon">
+            <img src="/novas/images/nova-banner-03.png" />
+        </div>
+        <h2>
+            Our Achievement
+        </h2>
+        <p>
+            Since 2005, Nova Software have provided software development service 
+            (Web Development & App Development) to more than 100 SMEs spread over North America, 
+            Europe, and Australia. 94%of our clients choose to continue working with 
+            Nova after the 1st project. 
+            Nova Software is certainly a fast-growing software outsourcing company. 
+        </p>
+        <div class="buttons">
+            <div id="btnEnter" class="btn">
+                <span>Enter...</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+    nova.application.currentPage.onLoaded(function () {
+        nova.touch.bindClick("#btnEnter", function () {
+            nova.application.gotoPage("/novas/menu.html");
+        });
+        nova.touch.bindClick("#btnBack", function () {
+            nova.application.goBack();
+        });
+
+        var carrousel = new nova.Carousel("novaBanners");
+        carrousel.onViewChanged(function (e) {
+            var index = e.index;
+            //todo
+        });
+        carrousel.init();
+    });
+</script>
